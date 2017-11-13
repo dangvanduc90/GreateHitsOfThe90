@@ -1,0 +1,81 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <ListView
+        android:id="@+id/lvChannel"
+        android:background="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp" />
+
+    <com.truizlop.fabreveallayout.FABRevealLayout
+        android:id="@+id/fab_reveal_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.design.widget.FloatingActionButton
+            app:backgroundTint="@color/fab"
+            android:src="@drawable/ic_play_white"
+            style="@style/FABStyle" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+                <TextView
+                    android:id="@+id/album_title_text"
+                    android:text="@string/album_title"
+                    style="@style/AlbumTitleStyle" />
+
+                <TextView
+                    android:id="@+id/artist_name_text"
+                    android:text="@string/artist_name"
+                    style="@style/ArtistNameStyle" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/FABStyle">
+                    <ImageButton
+                        android:id="@+id/ibtnStop"
+                        android:src="@drawable/ic_play_black"
+                        style="@style/MusicButtonStyle.CenterButtonStyle" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/song_progress_bar"
+                    style="@style/MusicBarStyle" />
+
+                <TextView
+                    android:id="@+id/song_title_text"
+                    android:text="@string/buffering"
+                    style="@style/SongTitleStyle" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </com.truizlop.fabreveallayout.FABRevealLayout>
+</LinearLayout>
