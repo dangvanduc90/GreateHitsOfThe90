@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.greatehits90.greatehitsofthe90.SplashActivity">
+    tools:context="com.greatehits90.greatehitsofthe90.activity.SplashActivity">
 
     <ImageView
         android:src="@drawable/screen"

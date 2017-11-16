@@ -1,35 +1,50 @@
 package com.greatehits90.greatehitsofthe90.adapter;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.greatehits90.greatehitsofthe90.R;
-import com.greatehits90.greatehitsofthe90.object.Channel;
+import com.greatehits90.greatehitsofthe90.common.LoadMoreItem;
+import com.greatehits90.greatehitsofthe90.object.ObjectRadio;
 
 import java.util.ArrayList;
 
-public class ChannelListViewAdapter extends ArrayAdapter<Channel> {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class ChannelListViewAdapter extends BaseAdapter {
     private Context mContext;
     private int resource;
-    private ArrayList<Channel> arrContext;
+    private ArrayList<ObjectRadio> arrContext;
+    private LoadMoreItem loadMoreItem;
 
-    public ChannelListViewAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Channel> objects) {
-        super(context, resource, objects);
-        this.mContext = context;
-        this.resource = resource;
-        this.arrContext = objects;
+    public ChannelListViewAdapter(Context mContext, ArrayList<ObjectRadio> arrContext, LoadMoreItem loadMoreItem) {
+        this.mContext = mContext;
+        this.arrContext = arrContext;
+        this.loadMoreItem = loadMoreItem;
     }
 
-    @NonNull
+    @Override
+    public int getCount() {
+        return arrContext.size();
+    }
+
+    @Override
+    public ObjectRadio getItem(int position) {
+        return arrContext.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder viewHolder;
@@ -43,17 +58,16 @@ public class ChannelListViewAdapter extends ArrayAdapter<Channel> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        Channel channel = arrContext.get(position);
-
-        Glide.with(mContext).load(channel.getImage()).into(viewHolder.ivImage);
-        viewHolder.tvTitle.setText(channel.getTitle());
-        viewHolder.tvArtist.setText(channel.getArtist());
-
+        ObjectRadio channel = arrContext.get(position);
+        Glide.with(mContext).load(channel.getLinkImg()).centerCrop().into(viewHolder.ivImage);
+        viewHolder.tvTitle.setText(channel.getName());
+        viewHolder.tvArtist.setText(channel.getContent());
+        loadMoreItem.numberItem(position);
         return convertView;
     }
 
     class ViewHolder {
-        ImageView ivImage;
+        CircleImageView ivImage;
         TextView tvTitle, tvArtist;
     }
 }

@@ -2,68 +2,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:orientation="vertical">
 
     <ListView
         android:id="@+id/lvChannel"
-        android:background="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_300sdp" />
+        android:layout_height="@dimen/_390sdp"
+        android:background="@color/colorWhite"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none" />
 
     <com.truizlop.fabreveallayout.FABRevealLayout
         android:id="@+id/fab_reveal_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <android.support.design.widget.FloatingActionButton
-            app:backgroundTint="@color/fab"
+            style="@style/FABStyle"
             android:src="@drawable/ic_play_white"
-            style="@style/FABStyle" />
+            app:backgroundTint="@color/fab" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/album_title_text"
-                    android:text="@string/album_title"
-                    style="@style/AlbumTitleStyle" />
+                    style="@style/AlbumTitleStyle"
+                    android:text="@string/album_title" />
 
                 <TextView
                     android:id="@+id/artist_name_text"
+                    style="@style/ArtistNameStyle"
                     android:text="@string/artist_name"
-                    style="@style/ArtistNameStyle" />
+                    android:textSize="@dimen/_14sdp" />
             </LinearLayout>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_centerInParent="true">
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    style="@style/FABStyle"
                     android:layout_gravity="center_horizontal"
-                    style="@style/FABStyle">
+                    android:orientation="horizontal">
+
                     <ImageButton
                         android:id="@+id/ibtnStop"
-                        android:src="@drawable/ic_play_black"
-                        style="@style/MusicButtonStyle.CenterButtonStyle" />
+                        style="@style/MusicButtonStyle.CenterButtonStyle"
+                        android:src="@drawable/ic_play_black" />
                 </LinearLayout>
 
                 <SeekBar
@@ -72,10 +74,12 @@
 
                 <TextView
                     android:id="@+id/song_title_text"
-                    android:text="@string/buffering"
-                    style="@style/SongTitleStyle" />
+                    style="@style/SongTitleStyle"
+                    android:text="@string/buffering" />
             </LinearLayout>
+
         </RelativeLayout>
 
     </com.truizlop.fabreveallayout.FABRevealLayout>
+
 </LinearLayout>
