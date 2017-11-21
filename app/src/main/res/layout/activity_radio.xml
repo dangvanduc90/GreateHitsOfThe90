@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sky_stars_background"
+    tools:context=".activity.RadioActivity">
+
+    <ImageView
+        android:id="@+id/ivPlaying"
+        android:layout_centerInParent="true"
+        android:src="@drawable/compact_disc"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp" />
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/ibtnPlay"
+            android:background="@null"
+            android:src="@drawable/ic_play_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</RelativeLayout>
